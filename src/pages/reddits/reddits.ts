@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RedditsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController } from 'ionic-angular';
+import { RedditService } from '../../app/services/reddit.service';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'reddits.html',
 })
 export class RedditsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  reddits: any[] = [];
+  constructor(public navCtrl: NavController, private redditService: RedditService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RedditsPage');
+  ionViewDidLoad(): void {
+    this.getPosts('sports', 5)
   }
 
+  getPosts(subject: string, limit: number) {
+    this.redditService.getPosts(subject, limit).subscribe(response => {
+      this.reddits = response.data.children
+      })
+  }
 }

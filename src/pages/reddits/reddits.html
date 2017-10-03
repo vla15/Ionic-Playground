@@ -16,13 +16,22 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label fixed Category></ion-label>
-      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
-        <ion-option value="food">Food</ion-option>
+      <ion-label fixed Category>Categories</ion-label>
+      <ion-select (ionChange)="getPosts()" [(ngModel)]="category" name="category">
         <ion-option value="sports">Sports</ion-option>
+        <ion-option value="food">Food</ion-option>
         <ion-option value="news">News</ion-option>
         <ion-option value="music">Music</ion-option>
         <ion-option value="funny">Funny</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed Category>Limit</ion-label>
+      <ion-select (ionChange)="getPosts()" [(ngModel)]="limit" name="limit">
+        <ion-option value="5">5</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="15">15</ion-option>
+        <ion-option value="20">20</ion-option>
       </ion-select>
     </ion-item>  
     <ion-item 

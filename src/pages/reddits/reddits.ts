@@ -10,27 +10,24 @@ import { RedditDetailsPage } from '../reddit-details/reddit-details';
 })
 export class RedditsPage {
   reddits: any[] = [];
-  category: string;
+  category: string = 'food';
+  limit: number = 5;
   constructor(public navCtrl: NavController, private redditService: RedditService) {
   }
 
   ionViewDidLoad(): void {
-    this.getPosts('sports', 5)
+    this.getPosts();
   }
 
-  getPosts(subject: string, limit: number) {
-    this.redditService.getPosts(subject, limit).subscribe(response => {
+  getPosts(): void {
+    this.redditService.getPosts(this.category, this.limit).subscribe(response => {
       this.reddits = response.data.children
       })
   }
 
-  viewItem(item:any): void {
+  viewItem(reddit:any): void {
     this.navCtrl.push(RedditDetailsPage, {
-      reddit: item
-    });
-  }
-
-  changeCategory(): void {
-    this.getPosts(this.category, 5)
+      reddit: reddit
+    })
   }
 }

@@ -10,6 +10,7 @@ import { RedditDetailsPage } from '../reddit-details/reddit-details';
 })
 export class RedditsPage {
   reddits: any[] = [];
+  category: string;
   constructor(public navCtrl: NavController, private redditService: RedditService) {
   }
 
@@ -27,5 +28,9 @@ export class RedditsPage {
     this.navCtrl.push(RedditDetailsPage, {
       reddit: item
     });
+  }
+
+  changeCategory(): void {
+    this.getPosts(this.category, 5)
   }
 }

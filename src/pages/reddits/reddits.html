@@ -14,7 +14,17 @@
 
 
 <ion-content padding>
-  <ion-list>    
+  <ion-list>
+    <ion-item>
+      <ion-label fixed Category></ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+        <ion-option value="food">Food</ion-option>
+        <ion-option value="sports">Sports</ion-option>
+        <ion-option value="news">News</ion-option>
+        <ion-option value="music">Music</ion-option>
+        <ion-option value="funny">Funny</ion-option>
+      </ion-select>
+    </ion-item>  
     <ion-item 
       *ngFor="let reddit of reddits"
       >

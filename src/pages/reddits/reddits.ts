@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { RedditService } from '../../app/services/reddit.service';
+import { RedditDetailsPage } from '../reddit-details/reddit-details';
 
 @IonicPage()
 @Component({
@@ -20,5 +21,11 @@ export class RedditsPage {
     this.redditService.getPosts(subject, limit).subscribe(response => {
       this.reddits = response.data.children
       })
+  }
+
+  viewItem(item:any): void {
+    this.navCtrl.push(RedditDetailsPage, {
+      reddit: item
+    });
   }
 }

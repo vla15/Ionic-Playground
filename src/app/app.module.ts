@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http'
-
 import { AboutPage } from '../pages/about/about';
 import { TabsPage } from '../pages/tabs/tabs';
 import { RedditsPage } from '../pages/reddits/reddits';
 import { SettingsPage } from '../pages/settings/settings';
+import { RedditDetailsPage } from '../pages/reddit-details/reddit-details'
 import { RedditService } from './services/reddit.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     TabsPage,
     RedditsPage,
-    SettingsPage
+    SettingsPage,
+    RedditDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     TabsPage,
     RedditsPage,
-    SettingsPage
+    SettingsPage,
+    RedditDetailsPage
   ],
   providers: [
     StatusBar,

@@ -4,11 +4,9 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class RedditService {
-  http:any;
   baseUrl: string;
 
   constructor(public http: Http) {
-    this.http = http;
     this.baseUrl = 'https://www.reddit.com/r';
   }
 

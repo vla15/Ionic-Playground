@@ -14,17 +14,19 @@
 
 
 <ion-content padding>
-  <ion-list>
-    
-    <ion-item *ngFor="let reddit of reddits">
-      <ion-thumbnail *ngIf="reddit.data.thumbnail">
+  <ion-list>    
+    <ion-item 
+      *ngFor="let reddit of reddits"
+      >
+      <ion-thumbnail *ngIf="reddit.data.thumbnail" item-left>
         <img src="{{reddit.data.thumbnail}}" />
       </ion-thumbnail>
       <h2>{{ reddit.data.title }}</h2>
         <p>
-          <ion-icon name="thumbs-up">{{ reddit.data.score }}</ion-icon>
-          <ion-icon name="chatboxes">{{ reddit.num_comments }}</ion-icon>
+          <ion-icon name="thumbs-up">{{ reddit.data.score }}</ion-icon> &nbsp;&nbsp;
+          <ion-icon name="chatboxes">{{ reddit.data.num_comments }}</ion-icon>
         </p>
+        <button ion-button clear (click)="viewItem(reddit.data)" item-right></button>
     </ion-item>
   </ion-list>
 

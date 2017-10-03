@@ -7,12 +7,42 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>reddit-details</ion-title>
+    <ion-title>{{reddit.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <pre>{{reddit | json}}</pre>
+  <ion-card>
+     <img *ngIf=!reddit.preview.enabled src="{{reddit.preview.images[0].source.url}}"/>﻿
+    <ion-card-content>
+      <ion-card-title>
+        {{reddit.title}}
+        </ion-card-title>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            Author
+            <ion-note item-right>
+              {{reddit.author}}
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            Score
+            <ion-note item-right>
+              {{reddit.score}}
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            Comments
+            <ion-note item-right>
+              {{reddit.num_comments}}
+            </ion-note>
+          </ion-item>
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

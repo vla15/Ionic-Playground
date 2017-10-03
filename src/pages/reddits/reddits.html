@@ -25,15 +25,6 @@
         <ion-option value="funny">Funny</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
-      <ion-label fixed Category>Limit</ion-label>
-      <ion-select (ionChange)="getPosts()" [(ngModel)]="limit" name="limit">
-        <ion-option value="5">5</ion-option>
-        <ion-option value="10">10</ion-option>
-        <ion-option value="15">15</ion-option>
-        <ion-option value="20">20</ion-option>
-      </ion-select>
-    </ion-item>  
     <ion-item 
       *ngFor="let reddit of reddits"
       >

@@ -28,7 +28,7 @@
     <ion-item 
       *ngFor="let reddit of reddits"
       >
-      <ion-thumbnail *ngIf="reddit.data.thumbnail" item-left>
+      <ion-thumbnail *ngIf="reddit.data.thumbnail === 'nsfw' ? false : reddit.data.thumbnail" item-left>
         <img src="{{reddit.data.thumbnail}}" />
       </ion-thumbnail>
       <h2>{{ reddit.data.title }}</h2>

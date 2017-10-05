@@ -20,7 +20,7 @@ export class SettingsPage {
     }
 
     if (localStorage.getItem('limit') !== null) {
-      this.limit = Number(localStorage.getItem('limit'))
+      this.limit = parseInt(localStorage.getItem('limit'), 10)
     } else {
       this.limit = 5
     }

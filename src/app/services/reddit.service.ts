@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RedditService {
@@ -13,5 +14,11 @@ export class RedditService {
   getPosts(category: string, limit: number) {
     return this.http.get(this.baseUrl + '/' + category + '/top.json?limit=' + limit)
       .map(res => res.json())
+  }
+
+  handleError(error: any): any {
+    console.error(error)
+    let message = `Error Status Code: ${error.status} at ${error.url}`;
+    return Observable.throw(message);
   }
 }

@@ -9,7 +9,7 @@ import { RedditsPage } from '../pages/reddits/reddits';
 import { SettingsPage } from '../pages/settings/settings';
 import { RedditDetailsPage } from '../pages/reddit-details/reddit-details'
 import { RedditService } from './services/reddit.service';
-
+import { PostService } from './services/post.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -39,6 +39,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    RedditService,
+    PostService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

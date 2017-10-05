@@ -3,12 +3,11 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RedditService } from './services/reddit.service';
-
+import { PostService } from './services/post.service';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
-  templateUrl: 'app.html',
-  providers: [RedditService]
+  templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;

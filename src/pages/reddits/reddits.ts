@@ -12,8 +12,7 @@ export class RedditsPage {
   reddits: any[] = [];
   category: string;
   limit: number;
-  errorMessage: string;
-  
+
   constructor(public navCtrl: NavController, private redditService: RedditService) {
     this.getDefaults();
   }
@@ -26,7 +25,7 @@ export class RedditsPage {
     }
 
     if (localStorage.getItem('limit') !== null) {
-      this.limit = localStorage.getItem('limit')
+      this.limit = parseInt(localStorage.getItem('limit'), 10)
     } else {
       this.limit = 5
     }
@@ -40,8 +39,7 @@ export class RedditsPage {
   getPosts(): void {
     this.redditService.getPosts(this.category, this.limit)
       .subscribe(
-        response => this.reddits = response.data.children,
-        error => this.errorMessage = <any>error
+        response => this.reddits = response.data.children
         )
   }
 

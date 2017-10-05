@@ -12,6 +12,8 @@ export class RedditsPage {
   reddits: any[] = [];
   category: string;
   limit: number;
+  errorMessage: string;
+  
   constructor(public navCtrl: NavController, private redditService: RedditService) {
     this.getDefaults();
   }
@@ -36,9 +38,11 @@ export class RedditsPage {
   }
 
   getPosts(): void {
-    this.redditService.getPosts(this.category, this.limit).subscribe(response => {
-      this.reddits = response.data.children
-      })
+    this.redditService.getPosts(this.category, this.limit)
+      .subscribe(
+        response => this.reddits = response.data.children,
+        error => this.errorMessage = <any>error
+        )
   }
 
   viewItem(reddit:any): void {

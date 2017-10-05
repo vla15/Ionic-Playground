@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { RedditService } from '../../app/services/reddit.service';
 import { RedditsPage } from '../reddits/reddits';
-import { AboutPage } from '../about/about';
 
 @Component({
   selector: 'page-settings',
@@ -11,7 +9,7 @@ import { AboutPage } from '../about/about';
 export class SettingsPage {
   category: string;
   limit: number;
-  constructor(public navCtrl: NavController, private redditService: RedditService) {
+  constructor(public navCtrl: NavController) {
     this.getDefaults()
   }
   getDefaults() {
@@ -22,7 +20,7 @@ export class SettingsPage {
     }
 
     if (localStorage.getItem('limit') !== null) {
-      this.limit = localStorage.getItem('limit')
+      this.limit = Number(localStorage.getItem('limit'))
     } else {
       this.limit = 5
     }
@@ -31,7 +29,7 @@ export class SettingsPage {
   setDefaults(): void {
     localStorage.setItem('category', this.category)
     localStorage.setItem('limit', this.limit)
-    this.navCtrl.push(RedditsPage)
+    this.navCtrl.setRoot(RedditsPage)
   }
 
 }
